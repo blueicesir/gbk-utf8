@@ -39,6 +39,7 @@
 
 
 #ifdef __WIN32__
+// int len参数是char* dst的大小，必须大于strlen(src)*2+1。推
 void utf8_to_gb(char* src, char* dst, int len)
 {
     int ret = 0;
@@ -62,7 +63,7 @@ void utf8_to_gb(char* src, char* dst, int len)
 
     free( strA );
 }
-
+// int len参数是char *dst的缓冲区大小，推荐strlen(src)*2+1，否则转化会失败。
 void gb_to_utf8(char* src, char* dst, int len)
 {
     int ret = 0;
